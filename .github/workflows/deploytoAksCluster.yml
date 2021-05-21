@@ -27,7 +27,7 @@ jobs:
     - name: Build and push image to ACR
       id: build-image
       run: |
-        docker build "$GITHUB_WORKSPACE/" -f  "dockerfile" -t python85.azurecr.io/pythonbootcamp01:${{ github.sha }} --label dockerfile-path=dockerfile
+        docker build "$GITHUB_WORKSPACE/Dockerfile-dir" -f  "Dockerfile-dir/Dockerfile" -t python85.azurecr.io/pythonbootcamp01:${{ github.sha }} --label dockerfile-path=Dockerfile-dir/Dockerfile
         docker push python85.azurecr.io/pythonbootcamp01:${{ github.sha }}
     
     - uses: azure/k8s-set-context@v1
